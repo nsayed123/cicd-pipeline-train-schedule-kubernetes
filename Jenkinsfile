@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to staging') {
               steps {
-                  withCredentials([usernamePassword(credentialsid: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')])
+                  withCredentials([usernamePassword(credentialsid: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]){
                       sshPublisher(
                             failOnError: true,
                             continueOnError: false,
@@ -34,6 +34,7 @@ pipeline {
                                     )]
                             )]
                       )
+                  }
               }
         }
     }

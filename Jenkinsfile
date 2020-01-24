@@ -12,8 +12,8 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
-        stage('Deploy to staging) {
-              steps{
+        stage('Deploy to staging') {
+              steps {
                   withCredentials([usernamePassword(credentialsid: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')])
                       sshPublisher(
                             failOnError: true,
